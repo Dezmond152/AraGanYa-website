@@ -162,18 +162,6 @@ body, html {
   grid-row-end: -2;
 }
 
-.music_player{
-  height: 100%;
-  width: 100%;
-
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 10;
-  grid-row-end: 10;
-
-  background-color: rgba(0, 0, 0, 0.801);
-}
-
 .music_list_container{
   position: relative;
   gap: 2px;
@@ -258,4 +246,24 @@ body, html {
   font-family: LXGW, Arial, sans-serif;
   font-size: 20px;
   color: rgba(255, 255, 255, 0.900);
+}
+
+.song_player{
+  height: 100%;
+  width: 100%;
+
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 10;
+  grid-row-end: 10;
+
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+.song_player_flex{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
