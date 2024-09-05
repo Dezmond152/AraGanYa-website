@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Araganya</title>
-    <link rel="stylesheet" href="static/styles/style.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
   </head>
 
   <body>
@@ -13,7 +13,7 @@
         class="video_background"
         id="back_vid"
         type="mp4"
-        src="./static/vid/body_background_vid.mp4"
+        src="/vid/body_background_vid.mp4"
         playsinline
         autoplay
         muted
@@ -38,7 +38,8 @@
 
         <div class="left_side">
           <div class="music_list_container">
-            <div class="row" aria-selected="false">
+
+            <div class="row" id="rw1" aria-selected="false">
               <div class="row_grid">
                 <img class="song_image" src="#" alt="#" />
                 <div class="song_info_container">
@@ -47,81 +48,48 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="right_side" id="right_side_id">
-          <div class="content_menu_flex">
-            <div id="content_menu_animation_id">
-              <div class="content_menu_frame_red">
-                <div class="content_menu_frame_gray">
-                  <div class="content_flex">
-                    <div class="content_menu_top_bar">
-                      <img
-                        class="music_baner"
-                        src="./static/images/banner.jpg"
-                      />
-                    </div>
-
-                    <div class="content_info_bar_flex">
-                      <div class="content_song_name">MY TIME</div>
-                      <div class="decor_gap">-</div>
-                      <div class="content_song_author">BO EN</div>
-                    </div>
-
-                    <div class="song_lyrics">
-                      <p>
-                        Close your eyes, you'll be here soon
-                        <br />Ichi ni san shi go fun <br />
-                        Tokidoki, hontou ni netai <br />Demo, kono waado dekinai
-                      </p>
-                      <p>Oyasumi <br />Oyasumi <br />Oyasumi <br />Oyasu</p>
-                      <p>
-                        Oyasumi, oyasumi<br />
-                        Close your eyes and you'll leave this dream<br />
-                        Oyasumi, oyasumi<br />
-                        I know that it's hard to do
-                      </p>
-                      <p>
-                        Days go by, shou ga nai<br />
-                        Moments pass, shattered glass<br />
-                        Hands of time, where's that chime?<br />
-                        In my head<br />
-                        I'll just, I'll just <br />I'll just, I'll just
-                      </p>
-                      <p>
-                        Hands (Hands!) of time will wring my neck<br />
-                        Every little moment spells regret<br />
-                        But I don't have to feel this way<br />
-                        As a voice inside my head
-                      </p>
-                      <p>Oyasumi <br />Oyasumi <br />Oyasumi <br />Oyasu</p>
-                      <p>
-                        Oyasumi, oyasumi <br />Close your eyes and you'll leave
-                        this dream <br />Oyasumi, oyasumi <br />I know that it's
-                        hard to do
-                      </p>
-                      <p>
-                        Hey! <br />Hеy! <br />Hey! <br />Hey, hey, hеy, hey!
-                      </p>
-                      <p>
-                        Oyasumi, oyasumi <br />Close your eyes and you'll leave
-                        this dream <br />Oyasumi, oyasumi <br />I know that it's
-                        hard to do <br />Oyasumi, oyasumi <br />Close your eyes
-                        and you'll leave this dream <br />Oyasumi, oyasumi
-                        <br />I know that it's hard to do
-                      </p>
-                    </div>
-                  </div>
+            <div class="row" id="rw2" aria-selected="false">
+              <div class="row_grid">
+                <img class="song_image" src="#" alt="#" />
+                <div class="song_info_container">
+                  <div class="song_name">Test</div>
+                  <div class="song_author">Test</div>
                 </div>
               </div>
             </div>
+
+            <div class="row" id="rw3" aria-selected="false">
+              <div class="row_grid">
+                <img class="song_image" src="#" alt="#" />
+                <div class="song_info_container">
+                  <div class="song_name">Test</div>
+                  <div class="song_author">Test</div>
+                </div>
+              </div>
+            </div>
+
+
+            
+          </div>
+        </div>
+
+
+        
+
+
+
+        <div class="right_side" id="right_side_id">
+          <div id="content_menu_flex_id"">
+            <!-- /////////////////////////////////// -->
+            <!-- Сюда Js вставляет код при клике row -->
+            <!-- /////////////////////////////////// -->
           </div>
         </div>
 
         <div class="song_player"></div>
       </div>
     </div>
-    <script src="/static/js/script.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
