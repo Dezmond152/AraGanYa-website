@@ -24,6 +24,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .main_area {
@@ -98,7 +99,7 @@ html {
   display: none;
 }
 
-.signin_menu_button {
+.login_menu_button {
   font-family: LXGW, Arial, sans-serif;
   color: aliceblue;
   align-items: center;
@@ -109,7 +110,7 @@ html {
   transition: 0.2s ease-in-out;
 }
 
-.login_menu_button {
+.register_menu_button {
   font-family: LXGW, Arial, sans-serif;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(255, 255, 255);
@@ -125,11 +126,11 @@ html {
   transform: scale(1.05);
 }
 
-.signin_menu_button:hover {
+.login_menu_button:hover {
   transform: scale(1.05);
 }
 
-.login_menu_button:hover {
+.register_menu_button:hover {
   transform: scale(1.05);
 }
 

@@ -1,0 +1,250 @@
+@font-face {
+  font-family: LXGW;
+  src: url(../fonts/LXGWWenKaiTC-Regular.woff2)
+    format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.bg_media_container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+
+.video_background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.main_area {
+  width: 100%;
+  height: 100vh;
+}
+
+.area_grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.left_side{
+  display: flex;
+  justify-content: center;
+  
+
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  background-color: rgba(0, 0, 0, 0.164);
+}
+
+.register_form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  width: 70%;
+  height: 100dvh;
+  background: linear-gradient(to top, #080707, #38323281);
+}
+
+.register_info_wrapper{
+  position: relative;
+  width: 70%;
+  height: 70%;
+}
+
+.register_info_flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+
+  width: 100%;
+  height: 100%;
+}
+
+.register_label{
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 45px;
+  color: rgba(255, 255, 255, 0.719);
+  padding: 0;
+  margin: 0;
+}
+
+#user_login,#user_email,#user_password {
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: rgba(36, 31, 31, 0.596);
+  border: 3px solid rgb(65, 59, 59);
+  color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  padding: 5%;
+  width: 70%;
+
+  transition: transform 0.1s ease-in-out;
+}
+
+.scale-up {
+  transform: scale(1.03);
+}
+
+#submit_user_info{
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 17px;
+  cursor: pointer;
+  outline: none;
+  width: 40%;
+  padding: 3%;
+  background-color: rgba(36, 31, 31, 0.596);
+  border: 3px solid rgb(65, 59, 59);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.9);
+
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+#submit_user_info:active {
+  transform: scale(0.95); 
+  background-color: #3a3e41;
+}
+
+.right_side{
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  background-color: rgba(0, 0, 0, 0.164);
+}
+
+
+
+
+
+
+
+
+.gsi-material-button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-appearance: none;
+  background-color: rgb(44, 40, 40);
+  background-image: none;
+  border: 1px solid #a3a8a5;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #1f1f1f;
+  cursor: pointer;
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 14px;
+  height: 40px;
+  letter-spacing: 0.25px;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+  transition: background-color .218s, border-color .218s, box-shadow .218s;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 40px;
+  max-width: 400px;
+  min-width: min-content;
+}
+
+.gsi-material-button .gsi-material-button-icon {
+  height: 20px;
+  margin-right: 12px;
+  min-width: 20px;
+  width: 20px;
+  margin: 0;
+  padding: 9px;
+}
+
+.gsi-material-button .gsi-material-button-content-wrapper {
+  -webkit-align-items: center;
+  align-items: center;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.gsi-material-button .gsi-material-button-contents {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  font-family: 'Roboto', arial, sans-serif;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.gsi-material-button .gsi-material-button-state {
+  -webkit-transition: opacity .218s;
+  transition: opacity .218s;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.gsi-material-button:disabled {
+  cursor: default;
+  background-color: #ffffff61;
+  border-color: #1f1f1f1f;
+}
+
+.gsi-material-button:disabled .gsi-material-button-contents {
+  opacity: 38%;
+}
+
+.gsi-material-button:disabled .gsi-material-button-icon {
+  opacity: 38%;
+}
+
+.gsi-material-button:not(:disabled):active .gsi-material-button-state, 
+.gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+  background-color: #303030;
+  opacity: 12%;
+}
+
+.gsi-material-button:not(:disabled):hover {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}
+
+.gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+  background-color: #303030;
+  opacity: 8%;
+}

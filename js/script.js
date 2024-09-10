@@ -47,21 +47,33 @@ function openMusicInfo() {
 };
 
 
-// ТЕСТ БЭКГРАУНД ВИДЕО //
-document.getElementById("site_name").addEventListener("click", () => {
+// // ТЕСТ БЭКГРАУНД ВИДЕО //
+// document.getElementById("site_name").addEventListener("click", () => {
 
-  const videos = [
-    "./vid/body_background_vid.mp4",
-    "./vid/test1.mp4",
-    "./vid/test2.mp4",
-    "./vid/test3.mp4",
-    "./vid/test4.mp4",
-    "./vid/test5.mp4",
-  ];
+//   const videos = [
+//     "./vid/body_background_vid.mp4",
+//     "./vid/test1.mp4",
+//     "./vid/test2.mp4",
+//     "./vid/test3.mp4",
+//     "./vid/test4.mp4",
+//     "./vid/test5.mp4",
+//   ];
 
-  const videoElement = document.getElementById("back_vid");
-  const randomIndex = Math.floor(Math.random() * videos.length);
-  videoElement.src = videos[randomIndex];
-  videoElement.load();
-  videoElement.play();
+//   const videoElement = document.getElementById("back_vid");
+//   const randomIndex = Math.floor(Math.random() * videos.length);
+//   videoElement.src = videos[randomIndex];
+//   videoElement.load();
+//   videoElement.play();
+// });
+
+
+
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('input', function() {
+      this.classList.add('scale-up');
+      clearTimeout(this.animationTimeout);
+      this.animationTimeout = setTimeout(() => {
+          this.classList.remove('scale-up');
+      }, 90); 
+  });
 });
