@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:phiresky/sql.js.git
+	branch = master
+	commit = 837d25db2fa248033016f08cd395989a0794ad18
+	parent = 2eb5fdc1679729d99993ea0abdd05ba5de27b83a
+	method = merge
+	cmdver = 0.4.3

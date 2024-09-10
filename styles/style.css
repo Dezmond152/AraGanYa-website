@@ -179,15 +179,10 @@ html {
   100%{bottom: 0%;}
 }
 
-@keyframes slide-down {
-  0%{bottom: 0%;}
-  100%{bottom: -120%;}
-}
-
 .content_menu_frame_red {
   display: flex;
 
-  width: 90%;
+  width: 80%;
   height: 100%;
 
   justify-content: center;
