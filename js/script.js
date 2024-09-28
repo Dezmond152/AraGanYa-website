@@ -25,7 +25,7 @@ function openMusicInfo() {
       <div class="content_menu_frame_gray">
         <div class="content_flex">
           <div class="content_menu_top_bar">
-            <img class="music_banner"src="./images/banner.jpg">
+            <img class="music_banner" src="../images/banner.jpg">
           </div>
           <div class="content_info_bar_flex">
             <div class="content_song_name">MY TIME</div>

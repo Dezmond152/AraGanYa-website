@@ -111,6 +111,8 @@ html {
 #submit_user_info{
   font-family: LXGW, Arial, sans-serif;
   font-size: 17px;
+  text-decoration: none;
+  text-align: center;
   cursor: pointer;
   outline: none;
   width: 40%;
@@ -119,6 +121,7 @@ html {
   border: 3px solid rgb(65, 59, 59);
   border-radius: 5px;
   color: rgba(255, 255, 255, 0.9);
+  
 
   transition: transform 0.1s ease, background-color 0.1s ease;
 }
@@ -148,7 +151,7 @@ html {
   -webkit-user-select: none;
   -ms-user-select: none;
   -webkit-appearance: none;
-  background-color: #131314;
+  background-color: #272724;
   background-image: none;
   border: 1px solid #747775;
   -webkit-border-radius: 20px;
@@ -253,5 +256,4 @@ html {
   background-color: white;
   opacity: 8%;
 }
-
 

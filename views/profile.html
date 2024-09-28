@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User profile</title>
+    <link rel="stylesheet" href="../styles/profile.css" />
+  </head>
+  <body>
+    <div class="bg_media_container">
+      <video
+        disablePictureInPicture
+        class="video_background"
+        id="back_vid"
+        type="mp4"
+        src="../vid/body_background_vid.mp4"
+        playsinline
+        autoplay
+        muted
+        loop
+      ></video>
+    </div>
+
+    <div class="main_area">
+      <div class="area_flex">
+        <div class="work_area_flex">
+          <div class="work_area">
+            <div class="work_area_grid">
+              <div class="music_list_container">
+
+                <div class="row" id="rw1" aria-selected="false">
+                  <div class="row_grid">
+                    <img class="song_image" src="#" alt="#" />
+                    <div class="song_info_container">
+                      <div class="song_name">Test</div>
+                      <div class="song_author">Test</div>
+                    </div>
+                    <div class="del_button_container">
+                        <p class="del_button"><b>✕</b></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" id="rw1" aria-selected="false">
+                    <div class="row_grid">
+                      <img class="song_image" src="#" alt="#" />
+                      <div class="song_info_container">
+                        <div class="song_name">Test</div>
+                        <div class="song_author">Test</div>
+                      </div>
+                      <div class="del_button_container">
+                          <p class="del_button"><b>✕</b></p>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_area_cover"></div>
+    </div>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>
