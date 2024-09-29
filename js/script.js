@@ -6,17 +6,16 @@ rowList.forEach((row) => {
     rowList.forEach((row) => row.setAttribute("aria-selected", "false"));
     row.setAttribute("aria-selected", "true");
 
-    openMusicInfo()
-    closePastContentMenu()
+    openMusicInfo();
+    closePastContentMenu();
   });
 });
-  
+
 function closePastContentMenu() {
   if (contentMenuFlex.childElementCount > 3) {
     setTimeout(() => contentMenuFlex.firstElementChild.remove(), 400);
   }
 }
-
 
 function openMusicInfo() {
   let htmlPattern = `
@@ -41,17 +40,20 @@ function openMusicInfo() {
   </div>
   `;
 
-  if(contentMenuFlex.childElementCount < 5){
+  if (contentMenuFlex.childElementCount < 5) {
     contentMenuFlex.insertAdjacentHTML("beforeend", htmlPattern);
-  } else{console.log("лимит, сука");};
-};
+  } else {
+    console.log("лимит, сука");
+  }
+}
 
-document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('input', function() {
-      this.classList.add('scale-up');
-      clearTimeout(this.animationTimeout);
-      this.animationTimeout = setTimeout(() => {
-          this.classList.remove('scale-up');
-      }, 90); 
+document.querySelectorAll("input").forEach((input) => {
+  input.addEventListener("input", function () {
+    this.classList.add("scale-up");
+
+    clearTimeout(this.animationTimeout);
+    this.animationTimeout = setTimeout(() => {
+      this.classList.remove("scale-up");
+    }, 90);
   });
 });
