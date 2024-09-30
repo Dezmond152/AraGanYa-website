@@ -56,6 +56,7 @@ main_area_cover {
   width: 95%;
 
   z-index: 1;
+  border-radius: 20px;
 
   background: linear-gradient(to top, #1a1a1ad3, #2c2c2c);
 }
@@ -84,6 +85,8 @@ main_area_cover {
   grid-column: 1 / 2;
   overflow-y: auto;
   overflow-x: hidden;
+  box-shadow: 4px 4px 20px 3px rgb(0, 0, 0);
+  
   background-color: #444242;
 }
 
@@ -185,31 +188,70 @@ main_area_cover {
   grid-template-rows: repeat(15, 1fr);
 }
 
-.test1 {
+.song_lirycs_form {
   height: 100%;
   width: 100%;
-  background-color: #444242;
   grid-column: 8 / 16;
   grid-row: 1 / 14;
 }
 
-.test2 {
+#song_lirycs_form_id {
   height: 100%;
   width: 100%;
   background-color: #444242;
+  box-shadow: -4px 4px 20px 3px rgb(0, 0, 0);
+
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  outline: none;
+
+  box-sizing: border-box;
+}
+
+.song_name_form {
+  height: 100%;
+  width: 100%;
   grid-column: 2 / 7;
   grid-row: 2 / 2;
 }
 
-.test3 {
+#song_name_form_id {
   height: 100%;
   width: 100%;
   background-color: #444242;
+
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  outline: none;
+
+  box-sizing: border-box;
+}
+
+.song_author_form {
+  height: 100%;
+  width: 100%;
   grid-column: 2 / 7;
   grid-row: 4 / 4;
 }
 
-.test4 {
+#song_author_form_id {
+  height: 100%;
+  width: 100%;
+  background-color: #444242;
+
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  outline: none;
+
+  box-sizing: border-box;
+}
+
+.song_icon_form {
   height: 100%;
   width: 100%;
   background-color: #444242;
@@ -217,7 +259,25 @@ main_area_cover {
   grid-row: 6 / 6;
 }
 
-.test5 {
+#song_icon_form_id {
+  font-family: LXGW, Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-size: 17px;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 3%;
+  background-color: rgba(36, 31, 31, 0.596);
+  color: rgba(255, 255, 255, 0.9);
+
+  block-size: border-box;
+}
+
+.song_banner_form {
   height: 100%;
   width: 100%;
   background-color: #444242;
@@ -225,7 +285,25 @@ main_area_cover {
   grid-row: 8 / 8;
 }
 
-.test6 {
+#song_banner_form_id {
+  font-family: LXGW, Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-size: 17px;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 3%;
+  background-color: rgba(36, 31, 31, 0.596);
+  color: rgba(255, 255, 255, 0.9);
+
+  block-size: border-box;
+}
+
+.song_file_form {
   height: 100%;
   width: 100%;
   background-color: #444242;
@@ -233,18 +311,69 @@ main_area_cover {
   grid-row: 10 / 10;
 }
 
-.test7 {
+#song_file_form_id {
+  font-family: LXGW, Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-size: 17px;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 3%;
+  background-color: rgba(36, 31, 31, 0.596);
+  color: rgba(255, 255, 255, 0.9);
+
+  block-size: border-box;
+}
+
+.add_button {
   height: 100%;
   width: 100%;
-  background-color: #4B2C2A;
+  background-color: #4b2c2a;
   grid-column: 3 / 6;
   grid-row: 12 / 12;
 }
 
-.test8 {
+#add_button_id {
+  font-family: LXGW, Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-size: 17px;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 3%;
+  background-color: rgba(36, 31, 31, 0.596);
+  color: rgba(255, 255, 255, 0.9);
+
+  block-size: border-box;
+}
+
+.return_button {
   height: 100%;
   width: 100%;
   background-color: #444242;
   grid-column: 14 / 16;
   grid-row: 15 / 15;
+}
+
+#return_button_id {
+  font-family: LXGW, Arial, sans-serif;
+  cursor: pointer;
+  outline: none;
+  font-size: 17px;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(36, 31, 31, 0.596);
+  color: rgba(255, 255, 255, 0.9);
+
+  block-size: border-box;
 }
