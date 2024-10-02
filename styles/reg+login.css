@@ -90,7 +90,7 @@ html {
   margin: 0;
 }
 
-#user_login,#user_email,#user_password {
+#user_login,#user_email {
   font-family: LXGW, Arial, sans-serif;
   font-size: 20px;
   border-radius: 10px;
