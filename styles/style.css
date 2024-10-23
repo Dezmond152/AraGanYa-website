@@ -281,7 +281,7 @@ html {
   padding: 3%;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1500px) {
   
   .content_song_name {
     font-size: 15px; 

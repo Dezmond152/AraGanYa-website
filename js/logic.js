@@ -14,12 +14,12 @@ export function openMusicInfo() {
       <div class="content_menu_frame_gray">
         <div class="content_flex">
           <div class="content_menu_top_bar">
-            <img class="music_banner" src="../images/banner.jpg">
+            <img class="music_banner" src="${1}">
           </div>
           <div class="content_info_bar_flex">
-            <div class="content_song_name">MY TIME</div>
+            <div class="content_song_name">${1}</div>
             <div class="decor_gap">-</div>
-            <div class="content_song_author">BO EN</div>
+            <div class="content_song_author">${1}</div>
           </div>
           <div class="song_lyrics">
             Test
@@ -47,3 +47,7 @@ document.querySelectorAll("input").forEach((input) => {
     }, 90);
   });
 });
+
+export function sendMusRecomendation() {
+  
+};
