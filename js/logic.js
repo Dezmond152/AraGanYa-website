@@ -48,6 +48,20 @@ document.querySelectorAll("input").forEach((input) => {
   });
 });
 
-export function sendMusRecomendation() {
-  
-};
+
+
+// let htmlRowPattern;
+
+// fetch('http://localhost:3000/')
+//   .then(res => {
+//     if(!res.ok) {throw new Error('Network response was not ok')}
+//     return res.text();
+//   })
+//   .then(http => {
+//     htmlRowPattern = http;
+//   })
+//   .catch(error => {
+//     console.error('Problem with the fetch operation:', error);
+//   });
+
+//   console.log(htmlRowPattern);

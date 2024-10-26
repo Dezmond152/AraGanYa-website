@@ -1,6 +1,6 @@
 const rowList = document.querySelectorAll(".row");
 
-import { closePastContentMenu, openMusicInfo, sendMusRecomendation } from "./logic.js";
+import {closePastContentMenu, openMusicInfo} from "./logic.js";
 
 rowList.forEach((row) => {
   row.addEventListener("click", () => {
@@ -12,4 +12,3 @@ rowList.forEach((row) => {
   });
 });
 
-// sendMusRecomendation();
