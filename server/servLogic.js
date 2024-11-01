@@ -1,67 +1,66 @@
-const mysql = require("mysql2");
+const mysql2 = require("mysql2/promise");
 const { log, error } = require("console");
+const { waitForDebugger } = require("inspector");
+const { resolve } = require("path");
 
-const connection = mysql.createConnection({
+const dbConfig = {
   host: "localhost",
   user: "root",
   password: "dezmond152",
   database: "araganya",
-});
+};
 
-const rowPattern = (imgSrc, songName, author) => `
-<div class="content_menu_animation" id= "content_menu_animation_id">
- <div class="content_menu_frame_red">
-      <div class="content_menu_frame_gray">
-        <div class="content_flex">
-          <div class="content_menu_top_bar">
-            <img class="music_banner" src="${imgSrc}">
-          </div>
-          <div class="content_info_bar_flex">
-            <div class="content_song_name">${songName}</div>
-            <div class="decor_gap">-</div>
-            <div class="content_song_author">${author}</div>
-          </div>
-          <div class="song_lyrics">
-            Test
-          </div>
-        </div>
+const rowPattern = (bannerSrc, songName, author) => `
+<div class="row" id="rw1" aria-selected="false">
+   <div class="row_grid">
+    <img class="song_image" src="#" alt="#" />
+     <div class="song_info_container">
+       <div class="song_name">Test</div>
+       <div class="song_author">Test</div>
       </div>
-    </div>
-  </div>`;
+   </div>
+</div>`;
 
-// БАЗА ДАННЫХ
-const createRow = () => {
-  connection.connect((err) => {
-    err
-      ? console.error("Ошибочка:", err.stack)
-      : console.log(connection.threadId);
+
+async function mainFunction() {
+  const connection = await mysql2.createConnection(dbConfig);
+
+  const songsRangeQuery = `SELECT COUNT(*) AS total FROM songs`;
+  const [result] = await connection.query(songsRangeQuery);
+
+  const allSongs = result[0].total;
+  log(`Количество песен: ${allSongs}`); //Количество песен в бд
+
+  if (allSongs === 0) {
+    log("Нет доступных песен.");
+    await connection.end();
     return;
-  });
+  }
 
-  connection.query(
-    "SELECT name FROM songs WHERE user_id = 1;",
-    (error, results, fields) => {
-      if (error) throw error;
-      console.log(results);
-    }
-  );
+  const randomNumbers = new Set();
+  let wantRange = 3; // Указываем желаемое количество песен
 
-  connection.end((err) => {
-    if (err) {
-      console.error("Ошибочка закрытия соеденения: ", err.stack);
-      return;
-    }
-    console.log("Соеденение закрыто");
-  });
+  while (randomNumbers.size < wantRange) {
+    const randomNumber = Math.floor(Math.random() * allSongs) + 1;
+    randomNumbers.add(randomNumber);
+  }
 
-  const imgSrc = '-';
-  const songName  = '-';
-  const author = '-';
-  res.send(createRowPattern(imgSrc, songName, author));
+  const randomNumbersArray = Array.from(randomNumbers);
+  log("Случайные номера песен:", randomNumbersArray); //айди рандомных песен
+  
+  const randomSongsQuery = `SELECT name, author, icon, file FROM songs WHERE id IN (${randomNumbersArray.join(',')})`;
+  const [randomSongsArray] = await connection.query(randomSongsQuery);
+  log("Полученные песни:", randomSongsArray); // Рандомные песни из бд
+
+  if (randomSongsArray.length === 0) {
+    log("Нет найденных песен с указанными ID.");
+  } else {
+    log("Полученные песни:", randomSongsArray);
+  }
 
 
+  await connection.end(log('Конектион закрыт, бай бай.'));
 };
+mainFunction() 
 
-module.exports = {
-    createRow,
-};
+module.exports = {};
