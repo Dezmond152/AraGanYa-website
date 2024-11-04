@@ -1,4 +1,6 @@
 const mysql2 = require("mysql2/promise");
+const path = require("path");
+const fs = require('fs');
 const { log, error } = require("console");
 const { waitForDebugger } = require("inspector");
 const { resolve } = require("path");
@@ -10,19 +12,19 @@ const dbConfig = {
   database: "araganya",
 };
 
-const rowPattern = (bannerSrc, songName, author) => `
+const rowPattern = (icon, name, author) => `
 <div class="row" id="rw1" aria-selected="false">
    <div class="row_grid">
-    <img class="song_image" src="#" alt="#" />
+    <img class="song_image" src="${icon}" alt="#" />
      <div class="song_info_container">
-       <div class="song_name">Test</div>
-       <div class="song_author">Test</div>
+       <div class="song_name">${name}</div>
+       <div class="song_author">${author}</div>
       </div>
    </div>
 </div>`;
 
 
-async function mainFunction() {
+async function getHTMLrandSong() {
   const connection = await mysql2.createConnection(dbConfig);
 
   const songsRangeQuery = `SELECT COUNT(*) AS total FROM songs`;
@@ -38,7 +40,7 @@ async function mainFunction() {
   }
 
   const randomNumbers = new Set();
-  let wantRange = 3; // Указываем желаемое количество песен
+  let wantRange = 10; // Указываем желаемое количество песен
 
   while (randomNumbers.size < wantRange) {
     const randomNumber = Math.floor(Math.random() * allSongs) + 1;
@@ -50,17 +52,24 @@ async function mainFunction() {
   
   const randomSongsQuery = `SELECT name, author, icon, file FROM songs WHERE id IN (${randomNumbersArray.join(',')})`;
   const [randomSongsArray] = await connection.query(randomSongsQuery);
-  log("Полученные песни:", randomSongsArray); // Рандомные песни из бд
-
+  
   if (randomSongsArray.length === 0) {
     log("Нет найденных песен с указанными ID.");
   } else {
-    log("Полученные песни:", randomSongsArray);
+    log("Песни полученны: "); // Рандомные песни из бд , randomSongsArray
   }
+
+  const htmlPatern = randomSongsArray.map(song => rowPattern(song.icon, song.name, song.author)).join('');
+  log("HTML Pattern:"); //, htmlPatern
+
+  const indexPath = path.join(__dirname, "../views", "index.html");
+  let indexHTML = fs.readFileSync(indexPath, 'utf8');
+
+  indexHTML = indexHTML.replace('<div class ="replase"></div>', htmlPatern);
 
 
   await connection.end(log('Конектион закрыт, бай бай.'));
+  return indexHTML;
 };
-mainFunction() 
 
-module.exports = {};
+module.exports = {getHTMLrandSong};

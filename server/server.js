@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const { } = require('./servLogic');
+const { getHTMLrandSong } = require('./servLogic');
 
 const app = express();
 const PORT = 3000;
@@ -16,18 +16,28 @@ const staticPath = [
   "vid",
   "styles",
   "views",
+  "AraGanYa",
 ];
+
+
 
 staticPath.forEach((dir) => {
   app.use(`/${dir}`, express.static(path.join(__dirname, `../${dir}`)));
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views", "index.html"));
+
+
+app.get("/", async (req, res) => {
+  try {
+    const mainHTML = await getHTMLrandSong();
+    res.send(mainHTML);
+  } catch (err) {
+    console.error("Ошибка при получении песен:", err);
+    res.status(500).send("Ошибка сервера.");
+  }
 });
 
-app.get('/', (req, res) =>{
-}); 
+
 
 
 
