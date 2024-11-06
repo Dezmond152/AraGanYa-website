@@ -14,14 +14,14 @@ const dbConfig = {
 
 const rowPattern = (icon, name, author) => `
 <div class="row" id="rw1" aria-selected="false">
-   <div class="row_grid">
-    <img class="song_image" src="${icon}" alt="#" />
-     <div class="song_info_container">
-       <div class="song_name">${name}</div>
-       <div class="song_author">${author}</div>
-      </div>
-   </div>
-</div>`;
+  <div class="row_grid">
+      <img class="song_image" src="${icon}" alt="#" />
+      <div class="song_info_container">
+        <div class="song_name">${name}</div>
+        <div class="song_author">${author}</div>
+        </div>
+    </div>
+  </div>`;
 
 
 async function getHTMLrandSong() {
@@ -48,9 +48,9 @@ async function getHTMLrandSong() {
   }
 
   const randomNumbersArray = Array.from(randomNumbers);
-  log("Случайные номера песен:", randomNumbersArray); //айди рандомных песен
+  log("Случайные номера песен:"); //айди рандомных песен , randomNumbersArray
   
-  const randomSongsQuery = `SELECT name, author, icon, file FROM songs WHERE id IN (${randomNumbersArray.join(',')})`;
+  const randomSongsQuery = `SELECT name, author, icon, id, file FROM songs WHERE id IN (${randomNumbersArray.join(',')})`;
   const [randomSongsArray] = await connection.query(randomSongsQuery);
   
   if (randomSongsArray.length === 0) {
@@ -67,9 +67,26 @@ async function getHTMLrandSong() {
 
   indexHTML = indexHTML.replace('<div class ="replase"></div>', htmlPatern);
 
+  const fileAndId = randomSongsArray.map(user => {
+    return { id: user.id, file: user.file};
+  });
+  log("Путь файла и айди юзера:"); //, fileAndId
+
+
+  const pathAndHTMLobj ={
+    str: indexHTML,
+    arr: fileAndId
+  };
 
   await connection.end(log('Конектион закрыт, бай бай.'));
-  return indexHTML;
+  return pathAndHTMLobj;
 };
+
+
+
+
+
+
+
 
 module.exports = {getHTMLrandSong};

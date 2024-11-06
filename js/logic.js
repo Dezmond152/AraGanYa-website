@@ -1,13 +1,16 @@
 const contentMenuFlex = document.getElementById("content_menu_flex_id");
 
 
-export function closePastContentMenu() {
+function closePastContentMenu() {
   if (contentMenuFlex.childElementCount > 3) {
     setTimeout(() => contentMenuFlex.firstElementChild.remove(), 400);
   }
 }
 
-export function openMusicInfo() {
+let SEX = "MY TIME"
+let SEX2 = "bo en"
+
+function openMusicInfo() {
   let htmlPattern = `
   <div class="content_menu_animation" id="content_menu_animation_id">
     <div class="content_menu_frame_red">
@@ -17,9 +20,8 @@ export function openMusicInfo() {
             <img class="music_banner" src="${1}">
           </div>
           <div class="content_info_bar_flex">
-            <div class="content_song_name">${1}</div>
-            <div class="decor_gap">-</div>
-            <div class="content_song_author">${1}</div>
+            <div class="content_song_name">${SEX}</div>
+            <div class="content_song_author">${SEX2}</div>
           </div>
           <div class="song_lyrics">
             Test
@@ -48,20 +50,27 @@ document.querySelectorAll("input").forEach((input) => {
   });
 });
 
+function playhoverSFX() {
+  const hoverSFX = new Audio('/sfx/hoverSFX.wav');
+  hoverSFX.play();
+}
+
+function rowclickSFX(){
+  const rowclick = new Audio('/sfx/row_clickSFX.wav');
+  rowclick.play();
+}
 
 
-// let htmlRowPattern;
+export { closePastContentMenu, openMusicInfo, playhoverSFX, rowclickSFX };
 
-// fetch('http://localhost:3000/')
-//   .then(res => {
-//     if(!res.ok) {throw new Error('Network response was not ok')}
-//     return res.text();
-//   })
-//   .then(http => {
-//     htmlRowPattern = http;
-//   })
-//   .catch(error => {
-//     console.error('Problem with the fetch operation:', error);
-//   });
 
-//   console.log(htmlRowPattern);
+let myArray = []; 
+
+fetch('http://localhost:3000/sfx')
+  .then(res => res.json())
+  .then(data => {
+    myArray = data;
+    console.log(myArray);
+  });
+
+

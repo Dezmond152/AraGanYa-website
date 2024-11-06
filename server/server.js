@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const { getHTMLrandSong } = require('./servLogic');
+const { log } = require("console");
 
 const app = express();
 const PORT = 3000;
@@ -17,6 +18,7 @@ const staticPath = [
   "styles",
   "views",
   "AraGanYa",
+  "sfx"
 ];
 
 
@@ -29,15 +31,22 @@ staticPath.forEach((dir) => {
 
 app.get("/", async (req, res) => {
   try {
-    const mainHTML = await getHTMLrandSong();
-    res.send(mainHTML);
+    const pathAndHTMLobj = await getHTMLrandSong();
+    res.send(pathAndHTMLobj.str);
   } catch (err) {
-    console.error("Ошибка при получении песен:", err);
+    console.error("Ошибка при получении indexHTML:", err);
     res.status(500).send("Ошибка сервера.");
   }
 });
 
-
-
+app.get("/sfx", async (req, res) =>{
+  try {
+    const pathAndHTMLobj = await getHTMLrandSong();
+    res.send(pathAndHTMLobj.arr);
+  } catch (err) {
+    console.error("Ошибка при получении fileAndId:", err);
+    res.status(500).send("Ошибка сервера.");
+  }
+});
 
 
