@@ -71,6 +71,6 @@ fetch('http://localhost:3000/sfx')
   .then(data => {
     myArray = data;
     console.log(myArray);
-  });
+});
 
 

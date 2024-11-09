@@ -52,10 +52,44 @@
             <!-- /////////////////////////////////// -->
             <!-- Сюда Js вставляет код при клике row -->
             <!-- /////////////////////////////////// -->
+
+
+
+
+            
           </div>
         </div>
 
-        <div class="song_player"></div>
+        <div class="song_player">
+          <div class="tune_menu_img_wrapper">
+            <img class="tune_menu_img" src="/images/tune.png" alt="#">
+          </div>
+
+          <div class="tune_menu">
+            <div class="tune_menu_content">
+
+              <div class="close_zone"><b>✕</div>
+
+              <div class="song_vol_wrapper">
+                <div>Music volume</div>
+                <input type="range">
+              </div>
+
+              <div class="sfx_vol_wrapper">
+                <div>SFX volume</div>
+                <input type="range">
+              </div>
+
+              <div class="audio_container">
+                <input type="button" class="stop_button" value="█">
+                <input type="button" class="default_button" value="Default">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
     <script type="module" src="/js/script.js"></script>
