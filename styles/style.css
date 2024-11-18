@@ -337,6 +337,7 @@ html {
   user-select: none;
 }
 
+
 .row[aria-selected="true"] {
   background: linear-gradient(
     rgba(89, 89, 126, 0.582),

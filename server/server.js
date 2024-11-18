@@ -32,21 +32,13 @@ staticPath.forEach((dir) => {
 app.get("/", async (req, res) => {
   try {
     const pathAndHTMLobj = await getHTMLrandSong();
-    res.send(pathAndHTMLobj.str);
+    res.send(pathAndHTMLobj);
   } catch (err) {
     console.error("Ошибка при получении indexHTML:", err);
     res.status(500).send("Ошибка сервера.");
   }
 });
 
-app.get("/sfx", async (req, res) =>{
-  try {
-    const pathAndHTMLobj = await getHTMLrandSong();
-    res.send(pathAndHTMLobj.arr);
-  } catch (err) {
-    console.error("Ошибка при получении fileAndId:", err);
-    res.status(500).send("Ошибка сервера.");
-  }
-});
+
 
 

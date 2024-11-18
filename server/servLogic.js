@@ -12,81 +12,45 @@ const dbConfig = {
   database: "araganya",
 };
 
-const rowPattern = (icon, name, author) => `
-<div class="row" id="rw1" aria-selected="false">
+const rowPattern = (id, icon, name, author, file) => `
+<div class="row" id="${id}" data-path="${file}" aria-selected="false">
   <div class="row_grid">
       <img class="song_image" src="${icon}" alt="#" />
       <div class="song_info_container">
         <div class="song_name">${name}</div>
         <div class="song_author">${author}</div>
-        </div>
-    </div>
-  </div>`;
-
+      </div>
+  </div>
+</div>`;
 
 async function getHTMLrandSong() {
-  const connection = await mysql2.createConnection(dbConfig);
-
   const songsRangeQuery = `SELECT COUNT(*) AS total FROM songs`;
+  let wantRange = 4; 
+
+  const connection = await mysql2.createConnection(dbConfig);
   const [result] = await connection.query(songsRangeQuery);
-
+  
   const allSongs = result[0].total;
-  log(`Количество песен: ${allSongs}`); //Количество песен в бд
-
-  if (allSongs === 0) {
-    log("Нет доступных песен.");
-    await connection.end();
-    return;
-  }
 
   const randomNumbers = new Set();
-  let wantRange = 10; // Указываем желаемое количество песен
-
   while (randomNumbers.size < wantRange) {
     const randomNumber = Math.floor(Math.random() * allSongs) + 1;
     randomNumbers.add(randomNumber);
   }
 
   const randomNumbersArray = Array.from(randomNumbers);
-  log("Случайные номера песен:"); //айди рандомных песен , randomNumbersArray
   
   const randomSongsQuery = `SELECT name, author, icon, id, file FROM songs WHERE id IN (${randomNumbersArray.join(',')})`;
   const [randomSongsArray] = await connection.query(randomSongsQuery);
   
-  if (randomSongsArray.length === 0) {
-    log("Нет найденных песен с указанными ID.");
-  } else {
-    log("Песни полученны: "); // Рандомные песни из бд , randomSongsArray
-  }
-
-  const htmlPatern = randomSongsArray.map(song => rowPattern(song.icon, song.name, song.author)).join('');
-  log("HTML Pattern:"); //, htmlPatern
-
+  const htmlPatern = randomSongsArray.map(song => rowPattern(song.id, song.icon, song.name, song.author, song.file)).join('');
   const indexPath = path.join(__dirname, "../views", "index.html");
   let indexHTML = fs.readFileSync(indexPath, 'utf8');
-
   indexHTML = indexHTML.replace('<div class ="replase"></div>', htmlPatern);
 
-  const fileAndId = randomSongsArray.map(user => {
-    return { id: user.id, file: user.file};
-  });
-  log("Путь файла и айди юзера:"); //, fileAndId
+  await connection.end();
 
-
-  const pathAndHTMLobj ={
-    str: indexHTML,
-    arr: fileAndId
-  };
-
-  await connection.end(log('Конектион закрыт, бай бай.'));
-  return pathAndHTMLobj;
+  return indexHTML;
 };
-
-
-
-
-
-
-
 
 module.exports = {getHTMLrandSong};
