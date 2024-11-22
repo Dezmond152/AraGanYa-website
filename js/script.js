@@ -7,7 +7,7 @@ const stopButton = document.getElementById("stop_button");
 const searchBar = document.getElementById("search_bar");
 
 
-
+let sex = 1;
 
 const rowclick = new Audio("/sfx/row_clickSFX.wav");
 const hoverSFX = new Audio("/sfx/hoverSFX.wav");
