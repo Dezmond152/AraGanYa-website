@@ -50,4 +50,21 @@ document.querySelectorAll("input").forEach((input) => {
   });
 });
 
-export { deletePastContentMenu, createMusicInfo };
+
+
+
+
+function pullSongFromBd(){
+
+
+}
+
+
+
+
+
+
+
+
+
+export { deletePastContentMenu, createMusicInfo, pullSongFromBd};

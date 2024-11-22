@@ -1,8 +1,13 @@
-import { deletePastContentMenu, createMusicInfo } from "./logic.js";
+import { deletePastContentMenu, createMusicInfo, pullSongFromBd} from "./logic.js";
 
 const songVolumeRange = document.getElementById("song_Volume");
 const sfxVolumeRange = document.getElementById("sfx_Volume");
 const defaultButton = document.getElementById("default_button");
+const stopButton = document.getElementById("stop_button");
+const searchBar = document.getElementById("search_bar");
+
+
+
 
 const rowclick = new Audio("/sfx/row_clickSFX.wav");
 const hoverSFX = new Audio("/sfx/hoverSFX.wav");
@@ -13,6 +18,8 @@ let currentAudio = null;
 let currentAudioVolume = 50;
 
 const rowList = document.querySelectorAll(".row");
+
+
 rowList.forEach((row) => {
   row.addEventListener("click", () => {
     rowList.forEach((row) => row.setAttribute("aria-selected", "false"));
@@ -81,17 +88,58 @@ closeButton.addEventListener("click", () => {
   rowclickPlay();
 });
 
-//Рестарт страницы при нажатии имени сайта
-document.getElementById("site_name").addEventListener("click", () => {
-  location.reload();
-});
-
 defaultButton.addEventListener("click", () => {
   hoverSFX.volume = 0.5; 
   rowclick.volume = 0.5; 
   if (currentAudio) { 
     currentAudio.volume = 0.5;
+    currentAudioVolume = 50;
   }
   songVolumeRange.value = 50;
   sfxVolumeRange.value = 50;
 });
+
+stopButton.addEventListener("click", () => {
+  if(currentAudio){
+    currentAudio.pause();
+    currentAudio.currntTime = 0;
+  }
+});
+
+//Строка поиска
+searchBar.addEventListener("search", () => {
+  let searchResault = searchBar.value;
+  console.log(searchResault);
+  pullSongFromBd(searchResault);
+});
+
+
+//Закрытие гайда
+const conformationButton = document.querySelector("#conformation_button");
+const guide = document.querySelector("#guide");
+conformationButton.addEventListener("click", () => {
+  guide.style.display = "none";
+});
+
+
+
+
+
+//Обновление списка песен при нажатии имени сайта
+document.getElementById("site_name").addEventListener("click", async () => {
+  
+  async function fetchHTML(url) {
+    const response = await fetch(url);
+    const html = await response.text();
+    return html; 
+  }
+
+  const htmlPattern = await fetchHTML('http://localhost:3000/sfx');
+
+  const musicListContainer = document.querySelector("#music_list_container");
+  
+  musicListContainer.innerHTML = htmlPattern;
+
+});
+
+

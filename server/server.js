@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const { getHTMLrandSong } = require('./servLogic');
 const { log } = require("console");
+const { type } = require("os");
 
 const app = express();
 const PORT = 3000;
@@ -31,8 +32,8 @@ staticPath.forEach((dir) => {
 
 app.get("/", async (req, res) => {
   try {
-    const pathAndHTMLobj = await getHTMLrandSong();
-    res.send(pathAndHTMLobj);
+    const { indexHTML, htmlPatern } = await getHTMLrandSong();
+    res.send(indexHTML);
   } catch (err) {
     console.error("Ошибка при получении indexHTML:", err);
     res.status(500).send("Ошибка сервера.");
@@ -40,5 +41,13 @@ app.get("/", async (req, res) => {
 });
 
 
-
+app.get("/sfx", async (req, res) => {
+  try {
+    const { indexHTML, htmlPatern } = await getHTMLrandSong();
+    res.send(htmlPatern);
+  } catch (err) {
+    console.error("Ошибка при получении indexHTML:", err);
+    res.status(500).send("Ошибка сервера.");
+  }
+});
 

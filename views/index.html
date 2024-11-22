@@ -28,7 +28,7 @@
             <div class="space"></div>
             <a class="site_name_bar" id="site_name" href="#">AraGanYa</a>
             <div class="space"></div>
-            <input type="search" class="search_bar" placeholder="Search..." />
+            <input type="search" class="search_bar" id="search_bar" placeholder="Search..." />
             <a class="login_menu_button" href="/views/login.html">Log in</a>
             <a href="/views/register.html">
               <button type="button" class="register_menu_button">
@@ -39,7 +39,7 @@
         </div>
 
         <div class="left_side">
-          <div class="music_list_container">
+          <div class="music_list_container" id="music_list_container">
             <div class ="replase"></div>
           </div>
         </div>
@@ -83,10 +83,20 @@
             </div>
           </div>
         </div>
-
-
       </div>
+
+      <div id="guide">
+        <div id="gude_wrapprer">
+          <div id="restart_guide">To update the list, click on the site name above</div>
+          <div id="volume_guide">To change volume settings or stop a track, click on the menu below</div>
+          <input type="button" id="conformation_button" value="I undertand!">
+        </div>
+      </div>
+
     </div>
     <script type="module" src="/js/script.js"></script>
   </body>
 </html>
+
+
+

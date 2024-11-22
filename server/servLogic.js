@@ -25,7 +25,7 @@ const rowPattern = (id, icon, name, author, file) => `
 
 async function getHTMLrandSong() {
   const songsRangeQuery = `SELECT COUNT(*) AS total FROM songs`;
-  let wantRange = 4; 
+  let wantRange = 5; 
 
   const connection = await mysql2.createConnection(dbConfig);
   const [result] = await connection.query(songsRangeQuery);
@@ -50,7 +50,9 @@ async function getHTMLrandSong() {
 
   await connection.end();
 
-  return indexHTML;
+  
+
+  return {indexHTML, htmlPatern};
 };
 
 module.exports = {getHTMLrandSong};

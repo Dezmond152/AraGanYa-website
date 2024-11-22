@@ -521,3 +521,139 @@ html {
   transform: scale(0.95); 
   background-color: #3a3e41;
 }
+
+#guide{
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+
+  z-index: 10;
+  
+  height: 100%; 
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.664);
+}
+
+#gude_wrapprer{
+  position: relative;
+  display: flex;
+
+  height: 100%; 
+  width: 100%;
+}
+
+#restart_guide{
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 26px;
+  color: rgb(209, 218, 218);
+
+  position: absolute;
+  display: flex;
+
+  border-bottom-right-radius: 30px;
+  
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+  top: 100px;
+  width: 400px;
+  height: 70px;
+  line-height: 1;
+
+  background-color: rgb(48, 45, 45);
+
+  left: -450px;
+  animation: restart_guide 0.5s ease-in-out forwards;
+}
+
+@keyframes restart_guide {
+  0% {
+    left: -450px; 
+}
+  100% {
+    left: 0; 
+}
+}
+
+#volume_guide{
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 26px;
+  color: rgb(209, 218, 218);
+
+  position: absolute;
+  display: flex;
+
+  border-top-left-radius: 30px;
+  
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  bottom: 100px;
+  width: 400px;
+  height: 70px;
+  line-height: 1;
+
+  background-color: rgb(48, 45, 45);
+  
+  right: -450px;
+  animation: volume_guide 0.5s ease-in-out forwards;
+}
+
+@keyframes volume_guide {
+  0% {
+    right: -450px; 
+}
+  100% {
+    right: 0; 
+}
+}
+
+
+
+#conformation_button{
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 25px;
+  color: rgb(209, 218, 218);
+  
+  display: flex;
+  margin: auto;
+
+ 
+  
+  background-color: rgb(48, 45, 45);
+}
+
+#conformation_button{
+  font-family: LXGW, Arial, sans-serif;
+  font-size: 50px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  line-height: 1;
+
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  height: 100px;
+  width: 330px;
+
+  display: flex;
+  margin: auto;
+
+  background-color: rgb(54, 50, 50);
+  color: rgb(209, 218, 218);
+  
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+#conformation_button:active {
+  transform: scale(0.95); 
+  background-color: #3a3e41;
+}
+
+#conformation_button:hover {
+  background-color: rgba(78, 78, 78, 0.315);
+}
