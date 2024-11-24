@@ -12,8 +12,9 @@ const dbConfig = {
   database: "araganya",
 };
 
-const rowPattern = (id, icon, name, author, file) => `
-<div class="row" id="${id}" data-path="${file}" aria-selected="false">
+
+const rowPattern = (id, file, banner, lyrics, icon, name, author) => `
+<div class="row" id="${id}" data-path="${file}" banner-path="${banner}" lyrics-path="${lyrics}" aria-selected="false">
   <div class="row_grid">
       <img class="song_image" src="${icon}" alt="#" />
       <div class="song_info_container">
@@ -40,17 +41,16 @@ async function getHTMLrandSong() {
 
   const randomNumbersArray = Array.from(randomNumbers);
   
-  const randomSongsQuery = `SELECT name, author, icon, id, file FROM songs WHERE id IN (${randomNumbersArray.join(',')})`;
+  const randomSongsQuery = `SELECT id, file, banner, lyrics, icon, name, author FROM songs WHERE id IN (${randomNumbersArray.join(',')})`;
   const [randomSongsArray] = await connection.query(randomSongsQuery);
   
-  const htmlPatern = randomSongsArray.map(song => rowPattern(song.id, song.icon, song.name, song.author, song.file)).join('');
+  const htmlPatern = randomSongsArray.map(song => rowPattern(song.id, song.file, song.banner, song.lyrics, song.icon, song.name, song.author )).join('');
   const indexPath = path.join(__dirname, "../views", "index.html");
   let indexHTML = fs.readFileSync(indexPath, 'utf8');
   indexHTML = indexHTML.replace('<div class ="replase"></div>', htmlPatern);
 
   await connection.end();
 
-  
 
   return {indexHTML, htmlPatern};
 };
