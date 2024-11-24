@@ -1,4 +1,4 @@
-export { deletePastContentMenu, createMusicInfo, createrRowInteraction, rowclickPlay, hoverSFXPlay};
+export { deletePastContentMenu, createMusicInfo, createrRowInteraction, rowclickPlay, hoverSFXPlay, updateRowList};
 
 const contentMenuFlex = document.getElementById("content_menu_flex_id");
 const songVolumeRange = document.getElementById("song_Volume");
@@ -8,7 +8,7 @@ const stopButton = document.getElementById("stop_button");
 const tuneMenuImg = document.querySelector(".tune_menu_img");
 const closeButton = document.querySelector(".close_zone");
 const tuneMenu = document.querySelector(".tune_menu");
-const rowList = document.querySelectorAll(".row");
+let rowList = document.querySelectorAll(".row");
 
 const rowclick = new Audio("/sfx/row_clickSFX.wav");
 const hoverSFX = new Audio("/sfx/hoverSFX.wav");
@@ -60,13 +60,10 @@ function createrRowInteraction(){
   });
 };
 
+function updateRowList(){
+  rowList = document.querySelectorAll("#music_list_container .row");
+};
 
-songVolumeRange.addEventListener("input", () => {
-  currentAudioVolume = songVolumeRange.value;
-  if (currentAudio) {
-    currentAudio.volume = currentAudioVolume / 100;
-  }
-});
 
 //Блок SfX
 function rowclickPlay() {
@@ -112,6 +109,13 @@ stopButton.addEventListener("click", () => {
   if(currentAudio){
     currentAudio.pause();
     currentAudio.currntTime = 0;
+  }
+});
+
+songVolumeRange.addEventListener("input", () => {
+  currentAudioVolume = songVolumeRange.value;
+  if (currentAudio) {
+    currentAudio.volume = currentAudioVolume / 100;
   }
 });
 

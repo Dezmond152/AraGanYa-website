@@ -1,4 +1,4 @@
-import { deletePastContentMenu, createMusicInfo, createrRowInteraction, rowclickPlay, hoverSFXPlay } from "./logic.js";
+import { deletePastContentMenu, createMusicInfo, createrRowInteraction, rowclickPlay, hoverSFXPlay, updateRowList } from "./logic.js";
 
 createrRowInteraction();
 
@@ -11,7 +11,10 @@ document.getElementById("site_name").addEventListener("click", async () => {
   }
   const htmlPattern = await fetchHTML('http://localhost:3000/sfx');
   const musicListContainer = document.querySelector("#music_list_container");
+
   musicListContainer.innerHTML = htmlPattern;
+
+  updateRowList(); 
   createrRowInteraction();
 });
 
