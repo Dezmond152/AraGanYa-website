@@ -18,15 +18,15 @@ const rowPattern = (id, file, banner, lyrics, icon, name, author) => `
   <div class="row_grid">
       <img class="song_image" src="${icon}" alt="#" />
       <div class="song_info_container">
-        <div class="song_name">${name}</div>
-        <div class="song_author">${author}</div>
+        <div id="song_name">${name}</div>
+        <div id="song_author">${author}</div>
       </div>
   </div>
 </div>`;
 
 async function getHTMLrandSong() {
   const songsRangeQuery = `SELECT COUNT(*) AS total FROM songs`;
-  let wantRange = 5; 
+  let wantRange = 15; 
 
   const connection = await mysql2.createConnection(dbConfig);
   const [result] = await connection.query(songsRangeQuery);

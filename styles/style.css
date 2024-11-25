@@ -173,6 +173,7 @@ html {
   animation-duration: 1s;
   animation-fill-mode: forwards;
   bottom: -120%;
+  scroll-behavior: smooth;
 }
 
 @keyframes slide-up {
@@ -253,14 +254,35 @@ html {
   font-size: 30px;
   width: 100%;
 
-  /* border-bottom: solid #383232 7px; */
-
   display: flex;
   justify-content: center;
 
   overflow-wrap: break-word;
   box-sizing: border-box;
+  padding: 1%;
 }
+
+.deco_gap{
+  height: 3px;
+  width: 35%;
+
+  border-radius: 10px;
+
+  align-self: center;
+  background-color: #8a9ba8 ;
+
+  animation: deco_gap 1s ease-in-out forwards;
+}
+
+@keyframes deco_gap {
+  0% {
+    width: 0%; 
+}
+  100% {
+    width: 35%;
+}
+}
+
 
 
 .content_song_author{
@@ -274,15 +296,20 @@ html {
 
   overflow-wrap: break-word;
   box-sizing: border-box;
+  padding: 1%;
 }
 
 .song_lyrics {
   font-family: LXGW, Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.801);
-  font-size: 20px;
+  color: rgba(255, 255, 255, 0.897);
+  font-size: 17px;
   
+  white-space: pre-wrap;
+  text-align: center;
+  scroll-behavior: smooth;
+
   box-sizing: border-box;
-  padding: 3%;
+  padding: 5%;
 }
 
 @media (max-width: 1500px) {
@@ -383,7 +410,7 @@ html {
   height: 100%;
 }
 
-.song_name {
+#song_name {
   width: 100%;
   height: auto;
   margin-top: 1%;
@@ -392,7 +419,7 @@ html {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.song_author {
+#song_author {
   width: 100%;
   height: auto;
   font-family: LXGW, Arial, sans-serif;
