@@ -18,10 +18,10 @@ hoverSFX.volume = 0.5;
 let currentAudio = null;
 let currentAudioVolume = 50;
 
-let curentSongBanner = "bo";
-let curentSongName = "bo";
-let curentSongAuthor = "bo";
-let curentSongLyrics = "bo";
+let curentBannerPath = "#";
+let curentSongName = "#";
+let curentSongAuthor = "#";
+let curentSongLyrics = "#";
 
 
 
@@ -31,20 +31,19 @@ function createrRowInteraction(){
       rowList.forEach((row) => row.setAttribute("aria-selected", "false"));
       row.setAttribute("aria-selected", "true");
   
-      let songPath = row.getAttribute("data-path");
-      let bannerPath = row.getAttribute("banner-path");
-      let lyrics = row.getAttribute("lyrics-path");
-      
-      console.log(songPath);
-      console.log(bannerPath);
-      console.log(lyrics);
-  
+      let currentSongPath = row.getAttribute("data-path");
+
+      curentBannerPath = row.getAttribute("banner-path");
+      curentSongName = row.querySelector("#song_name")?.textContent.trim(); 
+      curentSongAuthor = row.querySelector("#song_author")?.textContent.trim();
+      curentSongLyrics = row.getAttribute("lyrics-path"); // хотя тут
+
       if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
       }
   
-      currentAudio = new Audio(songPath);
+      currentAudio = new Audio(currentSongPath);
       currentAudio.volume = currentAudioVolume / 100;
       currentAudio.loop = true;
       currentAudio.play();
@@ -135,15 +134,14 @@ function createMusicInfo() {
       <div class="content_menu_frame_gray">
         <div class="content_flex">
           <div class="content_menu_top_bar">
-            <img class="music_banner" src="${curentSongBanner}">
+            <img class="music_banner" src="${curentBannerPath}" alt="#">
           </div>
           <div class="content_info_bar_flex">
             <div class="content_song_name">${curentSongName}</div>
+            <div class="deco_gap"></div>
             <div class="content_song_author">${curentSongAuthor}</div>
           </div>
-          <div class="song_lyrics">
-            ${curentSongLyrics}
-          </div>
+          <div class="song_lyrics">${curentSongLyrics}</div>
         </div>
       </div>
     </div>
