@@ -24,6 +24,8 @@ const rowPattern = (id, file, banner, lyrics, icon, name, author) => `
   </div>
 </div>`;
 
+
+
 async function getHTMLrandSong() {
   const songsRangeQuery = `SELECT COUNT(*) AS total FROM songs`;
   let wantRange = 15; 

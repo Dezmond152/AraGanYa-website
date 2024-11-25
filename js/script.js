@@ -2,8 +2,6 @@ import { deletePastContentMenu, createMusicInfo, createrRowInteraction, rowclick
 
 createrRowInteraction();
 
-// console.log(closeButton);
-
 //Обновление списка песен при нажатии имени сайта
 document.getElementById("site_name").addEventListener("click", async () => {
   async function fetchHTML(url) {
@@ -19,6 +17,7 @@ document.getElementById("site_name").addEventListener("click", async () => {
   updateRowList(); 
   createrRowInteraction();
 });
+
 
 
 //Закрытие гайда

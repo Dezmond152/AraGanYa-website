@@ -350,7 +350,7 @@ html {
 
 .row {
   position: relative;
-  left: 100px;
+  left: -600px;
   margin: 10px;
   width: 70%;
   height: 100px;
@@ -362,6 +362,13 @@ html {
   cursor: pointer;
   transition: 300ms;
   user-select: none;
+  animation: row 0.5s ease-in-out forwards;
+}
+
+
+@keyframes row {
+  0% {width: -600px;}
+  100% {left: 100px;}
 }
 
 
@@ -380,13 +387,13 @@ html {
 
 .row:has(+ .row:hover),
 .row:hover + .row {
-  transform: translateX(5px);
+  transform: translateX(7px);
   scale: 1.05;
 }
 
 .row:has(+ .row + .row:hover),
 .row:hover + .row + .row {
-  transform: translateX(2px);
+  transform: translateX(5px);
   scale: 1.02;
 }
 

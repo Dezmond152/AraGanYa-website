@@ -26,7 +26,7 @@ let curentSongLyrics = "#";
 
 
 function createrRowInteraction(){
-  rowList.forEach((row) => {
+  rowList.forEach((row, index) => {
     row.addEventListener("click", () => {
       rowList.forEach((row) => row.setAttribute("aria-selected", "false"));
       row.setAttribute("aria-selected", "true");
@@ -56,12 +56,15 @@ function createrRowInteraction(){
     row.addEventListener("mouseenter", () => {
       hoverSFXPlay();
     });
+
+    row.style.animationDelay = `${index * 0.03}s`;
   });
 };
 
 function updateRowList(){
   rowList = document.querySelectorAll("#music_list_container .row");
 };
+
 
 
 //Блок SfX
