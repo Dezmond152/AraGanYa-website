@@ -1,6 +1,7 @@
+const { getHTMLrandSong ,findSonginDB} = require('./servLogic');
+
 const express = require("express");
 const path = require("path");
-const { getHTMLrandSong } = require('./servLogic');
 const { log } = require("console");
 const { type } = require("os");
 
@@ -51,3 +52,10 @@ app.get("/sfx", async (req, res) => {
   }
 });
 
+app.use(express.json());
+app.post("/AraGanYa/songs", async (req, res) => {
+  const inputData = req.body.searchResault;
+  const processedData = await findSonginDB(inputData);
+  
+  res.json(processedData);
+});

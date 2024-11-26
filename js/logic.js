@@ -1,4 +1,4 @@
-export { deletePastContentMenu, createMusicInfo, createrRowInteraction, rowclickPlay, hoverSFXPlay, updateRowList};
+export { createrRowInteraction, pullSongFromBd, updateRowList };
 
 const contentMenuFlex = document.getElementById("content_menu_flex_id");
 const songVolumeRange = document.getElementById("song_Volume");
@@ -49,7 +49,7 @@ function createrRowInteraction(){
       currentAudio.play();
    
       rowclickPlay();            
-      createMusicInfo();        
+      createContentMenu();        
       deletePastContentMenu();    
     }); 
   
@@ -64,7 +64,6 @@ function createrRowInteraction(){
 function updateRowList(){
   rowList = document.querySelectorAll("#music_list_container .row");
 };
-
 
 
 //Блок SfX
@@ -122,15 +121,8 @@ songVolumeRange.addEventListener("input", () => {
 });
 
 
-
-
-function deletePastContentMenu() {
-  if (contentMenuFlex.childElementCount > 3) {
-    setTimeout(() => contentMenuFlex.firstElementChild.remove(), 400);
-  }
-}
-
-function createMusicInfo() {
+// Создание и удаления лишних контетн менюшек
+function createContentMenu() {
   let htmlPattern = `
   <div class="content_menu_animation" id="content_menu_animation_id">
     <div class="content_menu_frame_red">
@@ -158,10 +150,22 @@ function createMusicInfo() {
   }
 }
 
+function deletePastContentMenu() {
+  if (contentMenuFlex.childElementCount > 3) {
+    setTimeout(() => contentMenuFlex.firstElementChild.remove(), 400);
+  }
+}
 
-
-
-
+async function pullSongFromBd(searchResault){
+  const requestedSong = await fetch('http://localhost:3000/AraGanYa/songs', {
+    method: "POST",
+    body: JSON.stringify({ searchResault }),
+    headers: {"Content-Type": "application/json"},
+  });
+  const data = await requestedSong.json();
+  console.log("Это ты получил с сервера:", data);
+  return data;
+};
 
 
 

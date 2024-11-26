@@ -1,3 +1,4 @@
+module.exports = {getHTMLrandSong, findSonginDB};
 const mysql2 = require("mysql2/promise");
 const path = require("path");
 const fs = require('fs');
@@ -46,15 +47,33 @@ async function getHTMLrandSong() {
   const randomSongsQuery = `SELECT id, file, banner, lyrics, icon, name, author FROM songs WHERE id IN (${randomNumbersArray.join(',')})`;
   const [randomSongsArray] = await connection.query(randomSongsQuery);
   
-  const htmlPatern = randomSongsArray.map(song => rowPattern(song.id, song.file, song.banner, song.lyrics, song.icon, song.name, song.author )).join('');
+  const htmlPatern = randomSongsArray.map((song) => rowPattern(song.id, song.file, song.banner, song.lyrics, song.icon, song.name, song.author )).join('');
   const indexPath = path.join(__dirname, "../views", "index.html");
   let indexHTML = fs.readFileSync(indexPath, 'utf8');
   indexHTML = indexHTML.replace('<div class ="replase"></div>', htmlPatern);
 
   await connection.end();
-
-
   return {indexHTML, htmlPatern};
 };
 
-module.exports = {getHTMLrandSong};
+function normalizeString(str){
+  return str.trim().replace(/\s+/g, '').toLowerCase();
+};
+
+async function findSonginDB(inputData) {
+  const normalizedString = await normalizeString(inputData);
+  const findRequest =`SELECT name, author FROM songs WHERE LOWER(name) LIKE ? OR LOWER(author) LIKE ?`;
+
+  const connection = await mysql2.createConnection(dbConfig);
+  const [result] = await connection.query(findRequest, [`%${normalizedString}%`, `%${normalizedString}%`]);
+
+  const songsName = result.map(result => `'${result.name}'`);
+
+  const pullRequest = `SELECT id, file, banner, lyrics, icon, name, author FROM songs WHERE name IN (${songsName})`;
+  const [SongsArray] = await connection.query(pullRequest);
+  const pulledSongs = SongsArray.map((song) => rowPattern(song.id, song.file, song.banner, song.lyrics, song.icon, song.name, song.author )).join('');
+
+  await connection.end();
+  return pulledSongs;
+};
+
