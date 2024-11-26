@@ -1,4 +1,4 @@
-import { deletePastContentMenu, createMusicInfo, createrRowInteraction, rowclickPlay, hoverSFXPlay, updateRowList } from "./logic.js";
+import { createrRowInteraction, pullSongFromBd, updateRowList } from "./logic.js";
 
 createrRowInteraction();
 
@@ -32,7 +32,6 @@ conformationButton.addEventListener("click", () => {
 const searchBar = document.getElementById("search_bar");
 searchBar.addEventListener("search", () => {
   let searchResault = searchBar.value;
-  console.log(searchResault);
-  // pullSongFromBd(searchResault);
+  pullSongFromBd(searchResault);
 });
 

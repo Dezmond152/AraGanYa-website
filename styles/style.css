@@ -350,7 +350,7 @@ html {
 
 .row {
   position: relative;
-  left: -600px;
+  left: -700px;
   margin: 10px;
   width: 70%;
   height: 100px;
@@ -367,7 +367,7 @@ html {
 
 
 @keyframes row {
-  0% {width: -600px;}
+  0% {width: -700px;}
   100% {left: 100px;}
 }
 
