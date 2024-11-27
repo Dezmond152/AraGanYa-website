@@ -156,6 +156,8 @@ function deletePastContentMenu() {
   }
 }
 
+
+
 async function pullSongFromBd(searchResault){
   const requestedSong = await fetch('http://localhost:3000/AraGanYa/songs', {
     method: "POST",
@@ -163,8 +165,12 @@ async function pullSongFromBd(searchResault){
     headers: {"Content-Type": "application/json"},
   });
   const data = await requestedSong.json();
-  console.log("Это ты получил с сервера:", data);
-  return data;
+  
+  let rowLСontainer  = document.getElementById('music_list_container');
+  rowLСontainer.innerHTML = data;
+
+  updateRowList(); 
+  createrRowInteraction();
 };
 
 
