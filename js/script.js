@@ -9,7 +9,7 @@ document.getElementById("site_name").addEventListener("click", async () => {
     const html = await response.text();
     return html; 
   }
-  const htmlPattern = await fetchHTML('http://localhost:3000/sfx');
+  const htmlPattern = await fetchHTML('http://185.253.7.121:3000/sfx');
   const musicListContainer = document.querySelector("#music_list_container");
 
   musicListContainer.innerHTML = htmlPattern;

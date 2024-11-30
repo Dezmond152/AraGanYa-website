@@ -159,7 +159,7 @@ function deletePastContentMenu() {
 
 
 async function pullSongFromBd(searchResault){
-  const requestedSong = await fetch('http://localhost:3000/AraGanYa/songs', {
+  const requestedSong = await fetch('http://185.253.7.121:3000/AraGanYa/songs', {
     method: "POST",
     body: JSON.stringify({ searchResault }),
     headers: {"Content-Type": "application/json"},
