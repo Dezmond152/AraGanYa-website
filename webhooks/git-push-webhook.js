@@ -11,6 +11,7 @@ function verifySignature(payload, signature) {
     return crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(digest));
 }
 
+
 const server = http.createServer((req, res) => {
     if (req.method === "POST" && req.url === "/github-webhook") {
         let body = "";
