@@ -13,7 +13,7 @@ The site is designed to search for lyrics of your favorite songs. It is also pos
 
 
 **⚒️ Under progress:**<br>
-After registration, you can upload a demo of your favorite song to the database yourself to increase the number of interesting songs for other users
+After registration, in your profile you will be able to independently upload a demo version of your favorite song to the database to increase the number of interesting songs for other users.
 
 ## Technologies
 - **HTML**
