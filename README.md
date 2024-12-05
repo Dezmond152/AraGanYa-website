@@ -7,7 +7,7 @@
 The site is designed to search for the lyrics of your favorite songs. There is also the possibility of a demo song. You can update the list of songs by clicking on the site logo, which will allow you to search for new interesting songs from the database.<br><br>
 
     
-Working link: <a href="http://185.253.7.121:3000" target="_blank"></a><br><br>
+Working link: <a href="http://185.253.7.121:3000" target="_blank">VISIT THE SITE</a><br><br>
 
 
 **⚒️ Under progress:**<br>
