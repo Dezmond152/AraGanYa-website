@@ -1,5 +1,5 @@
 <div align="center">
-    <h1># ⭐ Website to find lyrics of your favorite songs ⭐</h1>
+    <h1> # ⭐ Website to find lyrics of your favorite songs ⭐</h1>
     <h2>❗The project is 80% complete❗</h2>
 </div>
 
