@@ -6,8 +6,7 @@
 </div>
 
 
-The site is designed to search for lyrics of your favorite songs. It is also possible to hear a demo of the song. You can refresh the list of songs by clicking on the site logo, which will allow you to search for new interesting songs from the database.<br><br>
-
+The site is designed to search for lyrics of your favorite songs. It is also possible to listen to a demo version. You can update the list of songs by clicking on the site logo, which will allow you to search for new interesting songs from the database. The database is currently not in the project files and is launched separately on the server<br><br>
     
 **Working link:** <a href="http://185.253.7.121:3000" target="_blank">VISIT THE SITE</a><br><br>
 
