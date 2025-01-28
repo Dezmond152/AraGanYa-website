@@ -22,7 +22,7 @@ let curentBannerPath = "#";
 let curentSongName = "#";
 let curentSongAuthor = "#";
 let curentSongLyrics = "#";
-
+let test = null;
 
 
 function createrRowInteraction(){
