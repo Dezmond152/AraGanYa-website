@@ -24,6 +24,7 @@ let curentSongAuthor = "#";
 let curentSongLyrics = "#";
 
 
+
 function createrRowInteraction(){
   rowList.forEach((row, index) => {
     row.addEventListener("click", () => {
