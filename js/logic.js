@@ -22,6 +22,7 @@ let curentBannerPath = "#";
 let curentSongName = "#";
 let curentSongAuthor = "#";
 let curentSongLyrics = "#";
+var test = 0;
 
 
 
