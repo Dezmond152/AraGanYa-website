@@ -58,15 +58,13 @@ html {
 .top_bar_container {
   display: flex;
   padding: 20px;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   gap: 10px;
   box-sizing: border-box;
 }
 
-.space {
-  width: 5%;
-}
 
 .site_name_bar {
   font-family: LXGW, Arial, sans-serif;
@@ -80,15 +78,17 @@ html {
 .search_bar {
   font-family: LXGW, Arial, sans-serif;
   font-size: 20px;
-  margin-right: auto;
   border-radius: 20px;
+  box-sizing: border-box;
   align-items: center;
   background-color: rgba(36, 31, 31, 0.596);
   border: 3px solid rgb(65, 59, 59);
   color: rgba(255, 255, 255, 0.9);
   outline: none;
-  padding: 1%;
+  padding: 20px;
   height: 10px;
+  min-width: 150px;
+  max-width: 100%;
 }
 
 .search_bar:focus {
@@ -312,46 +312,25 @@ html {
   padding: 5%;
 }
 
-@media (max-width: 1500px) {
-  
-  .content_song_name {
-    font-size: 15px; 
-    padding: 10px; 
-  }
-  
-  .decor_gap {
-    font-size: 15px; 
-    padding: 10px; 
-  }
-  
-  .content_song_author {
-    font-size: 15px; 
-    padding: 10px; 
-  }
-
-  .song_lyrics{
-    font-size: 15px; 
-    padding: 10px; 
-  }
+::-webkit-scrollbar {
+  display: none;
 }
 
 .music_list_container {
   position: relative;
-  gap: 2px;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-::-webkit-scrollbar {
-  display: none;
+  /* outline: 1px solid rgba(238, 232, 170, 0.747); */
 }
 
 .row {
   position: relative;
   left: -700px;
-  margin: 10px;
+  margin: 0.2vw;
   width: 70%;
   height: 100px;
   border-radius: 4px;
@@ -365,12 +344,10 @@ html {
   animation: row 0.5s ease-in-out forwards;
 }
 
-
 @keyframes row {
   0% {width: -700px;}
-  100% {left: 100px;}
+  100% {left: 4vw;}
 }
-
 
 .row[aria-selected="true"] {
   background: linear-gradient(
@@ -643,21 +620,6 @@ html {
 }
 }
 
-
-
-#conformation_button{
-  font-family: LXGW, Arial, sans-serif;
-  font-size: 25px;
-  color: rgb(209, 218, 218);
-  
-  display: flex;
-  margin: auto;
-
- 
-  
-  background-color: rgb(48, 45, 45);
-}
-
 #conformation_button{
   font-family: LXGW, Arial, sans-serif;
   font-size: 50px;
@@ -690,4 +652,107 @@ html {
 
 #conformation_button:hover {
   background-color: rgba(78, 78, 78, 0.315);
+}
+
+@media (max-width: 1280px) {
+  
+  .content_song_name {
+    font-size: 1em; 
+    padding: 1%; 
+  }
+  
+  .decor_gap {
+    font-size: 1em; 
+    padding: 1%; 
+  }
+  
+  .content_song_author {
+    font-size: 1em; 
+    padding: 1%; 
+  }
+
+  .song_lyrics{
+    font-size: 1em; 
+    padding: 1%; 
+  }
+
+  #song_name {
+    font-size: 1.1em;
+
+  }
+  
+  #song_author {
+    font-size: 0.9em;
+  }
+
+  #restart_guide{
+    font-size: 1.3em;
+  }
+
+  #volume_guide{
+    font-size: 1.3em;
+  }
+
+  #conformation_button{
+    font-size: 2em;
+  }
+  
+}
+
+@media (max-width: 768px) {
+
+  .content_song_name {
+    font-size: 0.5em; 
+    padding: 1%; 
+  }
+  
+  .decor_gap {
+    font-size: 0.5em; 
+    padding: 1%; 
+  }
+  
+  .content_song_author {
+    font-size: 0.5em; 
+    padding: 1%; 
+  }
+
+  .song_lyrics{
+    font-size: 0.5em; 
+    padding: 1%; 
+  }
+
+  #song_name {
+    font-size: 0.9em;
+  }
+  
+  #song_author {
+    font-size: 0.6em;
+  }
+
+}
+
+@media (max-width: 600px) {
+  
+  #restart_guide{
+    font-size: 1.3em;
+    padding: 20px;
+    top: 100px;
+    width: 200px;
+    height: 70px;
+  }
+  
+  #volume_guide{
+    font-size: 1.3em;
+    padding: 20px;
+    bottom: 100px;
+    width: 200px;
+    height: 70px;
+  }
+  
+  #conformation_button{
+    font-size: 2em;
+    height: 100px;
+    width: 230px;
+  }
+  
 }
