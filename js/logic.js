@@ -1,5 +1,6 @@
-export { createrRowInteraction, pullSongFromBd, updateRowList };
+export { createrRowInteraction, pullSongFromBd, updateRowList, closeContentMenu };
 
+const musicListContainer = document.getElementById("music_list_container");
 const contentMenuFlex = document.getElementById("content_menu_flex_id");
 const songVolumeRange = document.getElementById("song_Volume");
 const sfxVolumeRange = document.getElementById("sfx_Volume");
@@ -9,6 +10,7 @@ const tuneMenuImg = document.querySelector(".tune_menu_img");
 const closeButton = document.querySelector(".close_zone");
 const tuneMenu = document.querySelector(".tune_menu");
 let rowList = document.querySelectorAll(".row");
+
 
 const rowclick = new Audio("/sfx/row_clickSFX.wav");
 const hoverSFX = new Audio("/sfx/hoverSFX.wav");
@@ -146,9 +148,28 @@ function createContentMenu() {
 
   if (contentMenuFlex.childElementCount < 5) {
     contentMenuFlex.insertAdjacentHTML("beforeend", htmlPattern);
+
+    const musicBanners = document.querySelectorAll(".music_banner");
+    musicBanners.forEach(banner => {
+      banner.addEventListener("click", () => {closeContentMenu()});
+    });
+
   } else {
     console.log("лимит, сука");
   }
+}
+
+function closeContentMenu() {
+  contentMenuFlex.querySelectorAll('.content_menu_animation').forEach(el => {
+    el.style.animationName = 'slide-down';
+    el.remove;
+  });
+
+  if (currentAudio.volume) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+   }
+
 }
 
 function deletePastContentMenu() {
@@ -156,8 +177,6 @@ function deletePastContentMenu() {
     setTimeout(() => contentMenuFlex.firstElementChild.remove(), 400);
   }
 }
-
-
 
 async function pullSongFromBd(searchResault){
   const requestedSong = await fetch('http://185.253.7.121:3000/AraGanYa/songs', {

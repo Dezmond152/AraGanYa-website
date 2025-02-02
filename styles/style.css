@@ -1,7 +1,6 @@
 @font-face {
   font-family: LXGW;
-  src: url(../fonts/LXGWWenKaiTC-Regular.woff2)
-    format("woff2");
+  src: url(../fonts/LXGWWenKaiTC-Regular.woff2) format("woff2");
   font-style: normal;
   font-display: swap;
 }
@@ -58,13 +57,21 @@ html {
 .top_bar_container {
   display: flex;
   padding: 20px;
+  gap: 10px;
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  gap: 10px;
   box-sizing: border-box;
 }
 
+#wrap_sn_sb {
+  min-width: 150px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  margin-left: 5%;
+}
 
 .site_name_bar {
   font-family: LXGW, Arial, sans-serif;
@@ -85,6 +92,7 @@ html {
   border: 3px solid rgb(65, 59, 59);
   color: rgba(255, 255, 255, 0.9);
   outline: none;
+  
   padding: 20px;
   height: 10px;
   min-width: 150px;
@@ -98,6 +106,8 @@ html {
 .search_bar::-webkit-search-cancel-button {
   display: none;
 }
+
+
 
 .login_menu_button {
   font-family: LXGW, Arial, sans-serif;
@@ -145,6 +155,8 @@ html {
 }
 
 .right_side {
+  position: relative;
+
   height: 100%;
   width: 100%;
 
@@ -163,7 +175,7 @@ html {
   height: 100%;
 }
 
-.content_menu_animation{
+.content_menu_animation {
   position: absolute;
 
   width: 100%;
@@ -177,8 +189,21 @@ html {
 }
 
 @keyframes slide-up {
-  0%{bottom: -120%;}
-  100%{bottom: 0%;}
+  0% {
+    bottom: -120%;
+  }
+  100% {
+    bottom: 0%;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    bottom: 0%;
+  }
+  100% {
+    bottom: -120%;
+  }
 }
 
 .content_menu_frame_red {
@@ -227,13 +252,16 @@ html {
 .music_banner {
   object-fit: cover;
 
+  -webkit-user-drag: none;
+  cursor: pointer;
+  
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   height: 100%;
   width: 100%;
 }
 
-.content_info_bar_flex{
+.content_info_bar_flex {
   display: flex;
   flex-direction: column;
 
@@ -248,7 +276,7 @@ html {
   background-color: #241f1f;
 }
 
-.content_song_name{
+.content_song_name {
   font-family: LXGW, Arial, sans-serif;
   color: rgba(255, 255, 255, 0.801);
   font-size: 30px;
@@ -262,30 +290,28 @@ html {
   padding: 1%;
 }
 
-.deco_gap{
+.deco_gap {
   height: 3px;
   width: 35%;
 
   border-radius: 10px;
 
   align-self: center;
-  background-color: #8a9ba8 ;
+  background-color: #8a9ba8;
 
   animation: deco_gap 1s ease-in-out forwards;
 }
 
 @keyframes deco_gap {
   0% {
-    width: 0%; 
-}
+    width: 0%;
+  }
   100% {
     width: 35%;
+  }
 }
-}
 
-
-
-.content_song_author{
+.content_song_author {
   font-family: LXGW, Arial, sans-serif;
   color: rgba(255, 255, 255, 0.801);
   font-size: 30px;
@@ -303,7 +329,7 @@ html {
   font-family: LXGW, Arial, sans-serif;
   color: rgba(255, 255, 255, 0.897);
   font-size: 17px;
-  
+
   white-space: pre-wrap;
   text-align: center;
   scroll-behavior: smooth;
@@ -342,11 +368,16 @@ html {
   transition: 300ms;
   user-select: none;
   animation: row 0.5s ease-in-out forwards;
+  
 }
 
 @keyframes row {
-  0% {width: -700px;}
-  100% {left: 4vw;}
+  0% {
+    width: -700px;
+  }
+  100% {
+    left: 4vw;
+  }
 }
 
 .row[aria-selected="true"] {
@@ -427,17 +458,17 @@ html {
 
   z-index: 2;
 
-  background-color: rgba(0, 0, 0, 0.800);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.tune_menu_img_wrapper{
-  height: 40px; 
+.tune_menu_img_wrapper {
+  height: 40px;
   width: 40px;
 
   margin-right: 1%;
 }
 
-.tune_menu_img{
+.tune_menu_img {
   height: 100%;
   width: 100%;
   cursor: pointer;
@@ -447,10 +478,10 @@ html {
   transform: scale(1.05);
 }
 
-.tune_menu{
+.tune_menu {
   position: absolute;
 
-  height: 180px; 
+  height: 180px;
   width: 270px;
 
   bottom: 0;
@@ -463,20 +494,19 @@ html {
   transition: right 0.5s ease-out;
 }
 
-.tune_menu.active{
+.tune_menu.active {
   right: 0;
 }
 
-
-.tune_menu_content{
-  height: 100%; 
+.tune_menu_content {
+  height: 100%;
   width: 100%;
 }
 
-.close_zone{
+.close_zone {
   margin: 10px;
   line-height: 1;
-  
+
   cursor: pointer;
   display: inline-block;
 
@@ -485,11 +515,11 @@ html {
   background-color: #582727;
 }
 
-.close_zone:hover{
+.close_zone:hover {
   transform: scale(1.1);
 }
 
-.song_vol_wrapper{
+.song_vol_wrapper {
   display: flex;
   justify-content: space-between;
 
@@ -497,7 +527,7 @@ html {
   color: #ada3a3;
 }
 
-.sfx_vol_wrapper{
+.sfx_vol_wrapper {
   display: flex;
   justify-content: space-between;
 
@@ -505,13 +535,14 @@ html {
   color: #ada3a3;
 }
 
-.audio_container{
+.audio_container {
   display: flex;
   justify-content: space-evenly;
   margin: 15px;
 }
 
-.stop_button,.default_button{
+.stop_button,
+.default_button {
   font-family: LXGW, Arial, sans-serif;
   font-size: 17px;
   text-decoration: none;
@@ -524,37 +555,38 @@ html {
   border: 3px solid rgb(65, 59, 59);
   border-radius: 5px;
   color: rgba(255, 255, 255, 0.9);
-  
+
   transition: transform 0.1s ease, background-color 0.1s ease;
 }
 
-.default_button:active, .stop_button:active {
-  transform: scale(0.95); 
+.default_button:active,
+.stop_button:active {
+  transform: scale(0.95);
   background-color: #3a3e41;
 }
 
-#guide{
+#guide {
   position: absolute;
-  
+
   top: 0;
   left: 0;
 
   z-index: 10;
-  
-  height: 100%; 
+
+  height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.664);
 }
 
-#gude_wrapprer{
+#gude_wrapprer {
   position: relative;
   display: flex;
 
-  height: 100%; 
+  height: 100%;
   width: 100%;
 }
 
-#restart_guide{
+#restart_guide {
   font-family: LXGW, Arial, sans-serif;
   font-size: 26px;
   color: rgb(209, 218, 218);
@@ -563,7 +595,7 @@ html {
   display: flex;
 
   border-bottom-right-radius: 30px;
-  
+
   text-align: center;
   align-items: center;
   padding: 20px;
@@ -580,14 +612,14 @@ html {
 
 @keyframes restart_guide {
   0% {
-    left: -450px; 
-}
+    left: -450px;
+  }
   100% {
-    left: 0; 
-}
+    left: 0;
+  }
 }
 
-#volume_guide{
+#volume_guide {
   font-family: LXGW, Arial, sans-serif;
   font-size: 26px;
   color: rgb(209, 218, 218);
@@ -596,7 +628,7 @@ html {
   display: flex;
 
   border-top-left-radius: 30px;
-  
+
   align-items: center;
   text-align: center;
   padding: 20px;
@@ -606,21 +638,21 @@ html {
   line-height: 1;
 
   background-color: rgb(48, 45, 45);
-  
+
   right: -450px;
   animation: volume_guide 0.5s ease-in-out forwards;
 }
 
 @keyframes volume_guide {
   0% {
-    right: -450px; 
-}
+    right: -450px;
+  }
   100% {
-    right: 0; 
-}
+    right: 0;
+  }
 }
 
-#conformation_button{
+#conformation_button {
   font-family: LXGW, Arial, sans-serif;
   font-size: 50px;
   text-decoration: none;
@@ -641,12 +673,12 @@ html {
 
   background-color: rgb(54, 50, 50);
   color: rgb(209, 218, 218);
-  
+
   transition: transform 0.1s ease, background-color 0.1s ease;
 }
 
 #conformation_button:active {
-  transform: scale(0.95); 
+  transform: scale(0.95);
   background-color: #3a3e41;
 }
 
@@ -655,104 +687,97 @@ html {
 }
 
 @media (max-width: 1280px) {
-  
   .content_song_name {
-    font-size: 1em; 
-    padding: 1%; 
-  }
-  
-  .decor_gap {
-    font-size: 1em; 
-    padding: 1%; 
-  }
-  
-  .content_song_author {
-    font-size: 1em; 
-    padding: 1%; 
+    font-size: 1em;
+    padding: 1%;
   }
 
-  .song_lyrics{
-    font-size: 1em; 
-    padding: 1%; 
+  .decor_gap {
+    font-size: 1em;
+    padding: 1%;
+  }
+
+  .content_song_author {
+    font-size: 1em;
+    padding: 1%;
+  }
+
+  .song_lyrics {
+    font-size: 1em;
+    padding: 1%;
   }
 
   #song_name {
     font-size: 1.1em;
-
   }
-  
+
   #song_author {
     font-size: 0.9em;
   }
 
-  #restart_guide{
+  #restart_guide {
     font-size: 1.3em;
   }
 
-  #volume_guide{
+  #volume_guide {
     font-size: 1.3em;
   }
 
-  #conformation_button{
+  #conformation_button {
     font-size: 2em;
   }
-  
 }
 
 @media (max-width: 768px) {
-
   .content_song_name {
-    font-size: 0.5em; 
-    padding: 1%; 
-  }
-  
-  .decor_gap {
-    font-size: 0.5em; 
-    padding: 1%; 
-  }
-  
-  .content_song_author {
-    font-size: 0.5em; 
-    padding: 1%; 
+    font-size: 0.5em;
+    padding: 1%;
   }
 
-  .song_lyrics{
-    font-size: 0.5em; 
-    padding: 1%; 
+  .decor_gap {
+    font-size: 0.5em;
+    padding: 1%;
+  }
+
+  .content_song_author {
+    font-size: 0.5em;
+    padding: 1%;
+  }
+
+  .song_lyrics {
+    font-size: 0.5em;
+    padding: 1%;
   }
 
   #song_name {
     font-size: 0.9em;
   }
-  
+
   #song_author {
     font-size: 0.6em;
   }
-
 }
 
 @media (max-width: 600px) {
-  
-  #restart_guide{
+  #restart_guide {
     font-size: 1.3em;
     padding: 20px;
     top: 100px;
     width: 200px;
     height: 70px;
   }
-  
-  #volume_guide{
+
+  #volume_guide {
     font-size: 1.3em;
     padding: 20px;
     bottom: 100px;
     width: 200px;
     height: 70px;
   }
-  
-  #conformation_button{
+
+  #conformation_button {
     font-size: 2em;
     height: 100px;
     width: 230px;
   }
-  
 }
