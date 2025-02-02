@@ -1,4 +1,4 @@
-import { createrRowInteraction, pullSongFromBd, updateRowList } from "./logic.js";
+import { createrRowInteraction, pullSongFromBd, updateRowList, closeContentMenu} from "./logic.js";
 
 createrRowInteraction();
 
@@ -18,8 +18,6 @@ document.getElementById("site_name").addEventListener("click", async () => {
   createrRowInteraction();
 });
 
-
-
 //Закрытие гайда
 const conformationButton = document.querySelector("#conformation_button");
 const guide = document.querySelector("#guide");
@@ -27,11 +25,10 @@ conformationButton.addEventListener("click", () => {
   guide.style.display = "none";
 });
 
-
 //Строка поиска
 const searchBar = document.getElementById("search_bar");
 searchBar.addEventListener("search", () => {
   let searchResault = searchBar.value;
   pullSongFromBd(searchResault);
 });
-
+ 
