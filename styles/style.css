@@ -694,7 +694,6 @@ html {
   }
 
   .decor_gap {
-    font-size: 1em;
     padding: 1%;
   }
 
@@ -731,22 +730,17 @@ html {
 
 @media (max-width: 768px) {
   .content_song_name {
-    font-size: 0.5em;
-    padding: 1%;
-  }
-
-  .decor_gap {
-    font-size: 0.5em;
+    font-size: 1em;
     padding: 1%;
   }
 
   .content_song_author {
-    font-size: 0.5em;
+    font-size: 1em;
     padding: 1%;
   }
 
   .song_lyrics {
-    font-size: 0.5em;
+    font-size: 1em;
     padding: 1%;
   }
 
@@ -798,22 +792,26 @@ html {
     grid-row-end: 10;
   }
   
+  #wrap_lg_rg{
+    display: flex;
+    flex-direction: column;
+  }
+
   .register_menu_button {
     padding: 5px;
-    margin: 5px;
+  }
+
+  .login_menu_button{
+    margin: auto;
+    padding: auto;
   }
 
   .site_name_bar {
-    font-size: 2em;
+    font-size: 2.3em;
   }
 
   .search_bar{
     padding: 15px;
-  }
-
-  .register_menu_button{
-    margin-left: auto; 
-    margin-bottom: 0;
   }
 
   .content_menu_frame_red {
@@ -822,7 +820,37 @@ html {
     justify-content: center;
   }
 
-  /* .row{
-    margin: auto;
-  } */
+  .decor_gap {
+    padding: 1%;
+  }
+
+  .content_song_name {
+    font-size: 1.4em;
+    padding: 1%;
+  }
+ 
+  .content_song_author {
+    font-size: 1.4em;
+    padding: 1%;
+  }
+
+  .song_lyrics {
+    font-size: 1em;
+    padding: 5%;
+  }
+
+  #song_name {
+    font-size: 1.1em;
+  }
+
+  #song_author {
+    font-size: 0.9em;
+  }
+
+  #wrap_sn_sb {
+    align-items: start;
+    gap: 5%;
+    margin: 0;
+    padding: 0;
+  }
 }

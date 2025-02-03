@@ -44,6 +44,7 @@ html {
 .left_side{
   display: flex;
   justify-content: center;
+  align-items: center;
   
 
   width: 100%;
@@ -60,8 +61,8 @@ html {
 
   border-top-left-radius: 100px;
   border-bottom-right-radius: 100px;
-  width: 70%;
-  height: 100dvh;
+  width: 60%;
+  height: 90dvh;
   background: linear-gradient(to top, #080707, #38323281);
 }
 
@@ -140,7 +141,41 @@ html {
 }
 
 
+@media (max-width: 1000px) {
+  .right_side{
+    display: none;
+  }
+  .left_side{
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 10;
+  }
 
+  .register_label{
+    font-size: 2em;
+  }
+
+  #user_login,#user_email {
+    font-size: 1em;
+  }
+
+  #submit_user_info{
+    font-size: 0.8em;
+    width: 40%;
+    padding: 3%;
+  }
+
+  .left_side{
+    height: 100dvh;
+  }
+
+  .register_form{
+    width: 80%;
+    height: 60dvh;
+  }
+}
 
 
 
