@@ -2,9 +2,11 @@
     <h1>  <img src="https://user-images.githubusercontent.com/74038190/212744287-14f66c13-5458-40dc-9244-8ff533fc8f4a.gif" width="600"> <br>
           ⭐ Website to search for lyrics to your favorite songs ⭐  <br><br>
            </h1>
-    <h2>❗The project is 80% complete❗<br><br></h2><br>
 </div>
 
+<div align="center">
+  <img src="https://github.com/Dezmond152/AraGanYa-website/blob/03b57d9d6c9c6c557161f81b06b5b15dd5ef4ed9/AraGanYa/git.gif" width="1100" />
+</div>
 
 The site is designed to search for lyrics of your favorite songs. It is also possible to listen to a demo version. You can update the list of songs by clicking on the site logo, which will allow you to search for new interesting songs from the database. The database is currently not in the project files and is launched separately on the server<br><br>
     
