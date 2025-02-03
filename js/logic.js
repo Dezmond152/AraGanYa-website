@@ -2,14 +2,16 @@ export { createrRowInteraction, pullSongFromBd, updateRowList, closeContentMenu 
 
 const musicListContainer = document.getElementById("music_list_container");
 const contentMenuFlex = document.getElementById("content_menu_flex_id");
-const songVolumeRange = document.getElementById("song_Volume");
-const sfxVolumeRange = document.getElementById("sfx_Volume");
 const defaultButton = document.getElementById("default_button");
-const stopButton = document.getElementById("stop_button");
+const songVolumeRange = document.getElementById("song_Volume");
 const tuneMenuImg = document.querySelector(".tune_menu_img");
+const sfxVolumeRange = document.getElementById("sfx_Volume");
+const stopButton = document.getElementById("stop_button");
 const closeButton = document.querySelector(".close_zone");
+const leftSide = document.querySelector('.left_side');
 const tuneMenu = document.querySelector(".tune_menu");
 let rowList = document.querySelectorAll(".row");
+let biger600 = null;
 
 
 const rowclick = new Audio("/sfx/row_clickSFX.wav");
@@ -145,31 +147,49 @@ function createContentMenu() {
     </div>
   </div>
   `;
-
+  
   if (contentMenuFlex.childElementCount < 5) {
-    contentMenuFlex.insertAdjacentHTML("beforeend", htmlPattern);
-
-    const musicBanners = document.querySelectorAll(".music_banner");
-    musicBanners.forEach(banner => {
-      banner.addEventListener("click", () => {closeContentMenu()});
-    });
+    
+    if (window.innerWidth <= 600){
+      leftSide.insertAdjacentHTML("beforeend", htmlPattern);
+      addEventonBaner();
+      biger600 = false;
+    } else{
+      contentMenuFlex.insertAdjacentHTML("beforeend", htmlPattern);
+      addEventonBaner();
+      biger600 = true;
+    }
 
   } else {
     console.log("лимит, сука");
   }
 }
 
-function closeContentMenu() {
-  contentMenuFlex.querySelectorAll('.content_menu_animation').forEach(el => {
-    el.style.animationName = 'slide-down';
-    el.remove;
+function addEventonBaner(){
+  const musicBanners = document.querySelectorAll(".music_banner");
+  musicBanners.forEach(banner => {
+    banner.addEventListener("click", () => {closeContentMenu()});
   });
+}
+
+function closeContentMenu() {
+
+  if(biger600 === true){
+    contentMenuFlex.querySelectorAll('.content_menu_animation').forEach(el => {
+      el.style.animationName = 'slide-down';
+      el.remove;
+    });
+  } else {
+    leftSide.querySelectorAll('.content_menu_animation').forEach(el => {
+      el.style.animationName = 'slide-down';
+      el.remove;
+    });
+  }
 
   if (currentAudio.volume) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
-   }
-
+  }
 }
 
 function deletePastContentMenu() {
