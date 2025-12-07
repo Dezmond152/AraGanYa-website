@@ -5,9 +5,10 @@
 </div>
 
 <div align="center">
-  <img src="https://github.com/Dezmond152/AraGanYa-website/blob/756af89b83d4528262a398d3633257533857176c/AraGanYa/git.gif" width="1100" />
+  <img src="AraGanYa/site-gif-720-347.gif" width="1100" />
 </div>
 
+ 
 The site is designed to search for lyrics of your favorite songs. It is also possible to listen to a demo version. You can update the list of songs by clicking on the site logo, which will allow you to search for new interesting songs from the database.<br><br>
     
 **Working link:** <a href="http://185.237.165.82:3000" target="_blank">VISIT THE SITE</a><br><br>
