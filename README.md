@@ -11,7 +11,7 @@
  
 The site is designed to search for lyrics of your favorite songs. It is also possible to listen to a demo version. You can update the list of songs by clicking on the site logo, which will allow you to search for new interesting songs from the database.<br><br>
     
-**Working link:** <a href="http://185.237.165.82:3000" target="_blank">VISIT THE SITE</a><br><br>
+**Working link:** <a href="http://185.237.165.82:3000" target="_blank">⚠️Temporarily unavailable⚠️</a><br><br> 
 
 
 **⚒️ Under progress:**<br>
